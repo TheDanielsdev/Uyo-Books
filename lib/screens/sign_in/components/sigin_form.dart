@@ -45,10 +45,9 @@ class _SignInFormState extends State<SignInForm> {
           children: [
             TextFormField(
               validator: (value) {
-                RegExp rg = RegExp(r"^[a-zA-Z0-9.]+@[a-zA-Z0-9]+\.[a-zA-Z]+");
                 if (value!.isEmpty) {
                   return Constants.kEmailNullError;
-                } else if (!rg.hasMatch(value)) {
+                } else if (!Constants.emailValidatorRegExp.hasMatch(value)) {
                   return Constants.kInvalidEmailError;
                 }
                 return null;
